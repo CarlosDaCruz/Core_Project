@@ -164,6 +164,154 @@
       .restart-button:hover {
         background-color: #1a252f;
       }
+
+      /* Mejoras visuales */
+      body {
+        background-color: #f0f2f5;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .container {
+        max-width: 850px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+
+      h1 {
+        font-size: 30px;
+        margin-bottom: 25px;
+        color: #1a365d;
+        font-weight: 600;
+      }
+
+      .context {
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        border-left: 5px solid #3182ce;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .option {
+        background-color: #edf2f7;
+        border-radius: 8px;
+        padding: 15px 20px;
+        font-size: 16px;
+        transition: all 0.2s ease;
+        border-left: 3px solid transparent;
+      }
+
+      .option:hover {
+        background-color: #e2e8f0;
+        border-left: 3px solid #3182ce;
+        transform: translateX(5px);
+      }
+
+      .option.selected {
+        background-color: #ebf8ff;
+        border-left: 3px solid #3182ce;
+        font-weight: 500;
+      }
+
+      .explanation {
+        background-color: #e6fffa;
+        border-radius: 8px;
+        padding: 25px;
+        border-left: 4px solid #38b2ac;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+
+      .explanation h3 {
+        color: #2c5282;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .nav-button {
+        background-color: #3182ce;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .nav-button:hover {
+        background-color: #2c5282;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .case-image {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Animaciones */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .case {
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      .explanation {
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      /* Sistema de resultados */
+      .result-category {
+        background-color: #ebf8ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-left: 4px solid #3182ce;
+      }
+
+      .result-category h3 {
+        margin-top: 0;
+        color: #2c5282;
+      }
+
+      .progress-bar-container {
+        width: 100%;
+        background-color: #e2e8f0;
+        height: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      .progress-bar {
+        height: 100%;
+        border-radius: 5px;
+        background-color: #3182ce;
+        transition: width 0.5s ease-out;
+      }
+
+      .progress-label {
+        text-align: right;
+        font-size: 14px;
+        color: #4a5568;
+      }
     </style>
   </head>
   <body>
@@ -171,7 +319,8 @@
       <div class="start-screen" id="startScreen">
         <h1>Debates filosóficos sobre algunos dilemas morales</h1>
         <p>
-          Explora dilemas morales y filosóficos que pueden surgir en la vida y valen la pena pensar sobre ellos.
+          Explora dilemas morales y filosóficos que pueden surgir en la vida y
+          valen la pena pensar sobre ellos.
         </p>
         <button class="start-button" onclick="startExperience()">
           Comenzar
@@ -190,6 +339,11 @@
 
         <div class="case active" id="case1">
           <h1>El mal menor por un bien mayor</h1>
+          <img
+            src="/CrimenCas2.jpg"
+            alt="Imagen ilustrativa"
+            class="case-image"
+          />
           <div class="context">
             <p>
               El protagonista, Raskólnikov, es un joven estudiante empobrecido
@@ -319,6 +473,11 @@
 
         <div class="case" id="case2">
           <h1>Autenticidad y transformación</h1>
+          <img
+            src="CrimenCas2.jpg"
+            alt="Imagen ilustrativa"
+            class="case-image"
+          />
           <div class="context">
             <p>
               Raskólnikov es un joven estudiante que vive en la pobreza en San
@@ -454,6 +613,11 @@
 
         <div class="case" id="case3">
           <h1>La vida bien lograda</h1>
+          <img
+            src="/CrimenCast.jpg"
+            alt="Imagen ilustrativa"
+            class="case-image"
+          />
           <div class="context">
             <p>
               En la novela, Raskólnikov cree que una vida bien lograda es
@@ -583,6 +747,11 @@
         </div>
         <div class="case" id="case4">
           <h1>El principio de la máxima felicidad</h1>
+          <img
+            src="/PrimeraPregunta.jpg"
+            alt="Imagen ilustrativa"
+            class="case-image"
+          />
           <div class="context">
             <p>
               Anna Fitzgerald es una niña concebida por medio de fertilización
@@ -710,6 +879,11 @@
 
         <div class="case" id="case5">
           <h1>El mal menor en The Dark Knight</h1>
+          <img
+            src="/Batman.jpg"
+            alt="Imagen ilustrativa"
+            class="case-image"
+          />
           <div class="context">
             <p>
               En la película The Dark Knight, el Joker, un villano anárquico,
@@ -834,6 +1008,11 @@
 
         <div class="case" id="case6">
           <h1>Relativismo cultural en Los Juegos del Hambre</h1>
+          <img
+            src="/JuegosHambre.jpg"
+            alt="Imagen ilustrativa"
+            class="case-image"
+          />
           <div class="context">
             <p>
               En "Los Juegos del Hambre", Panem es un país dividido en 12
@@ -964,14 +1143,22 @@
       </div>
 
       <div class="final-screen" id="finalScreen">
-        <h1>¡Gracias por participar!</h1>
+        <h1>Tus resultados filosóficos</h1>
         <p>
-          Has completado todos los debates filosóficos y dilemas morales que existen en el mundo
+          Basado en tus respuestas a los dilemas morales, hemos analizado tu
+          inclinación filosófica:
         </p>
+
+        <div id="resultsContainer">
+          <!-- Aquí se generarán los resultados dinámicamente -->
+        </div>
+
         <p>
-          Este ejercicio te ha permitido explorar diferentes perspectivas sobre
-          dilemas morales y filosóficos que valen la pena ponernos a pensar.
+          Recuerda que estas categorías son simplificaciones de teorías éticas
+          complejas. Tu forma de pensar es única y probablemente incorpora
+          elementos de múltiples perspectivas filosóficas.
         </p>
+
         <button class="restart-button" onclick="restartExperience()">
           Volver a empezar
         </button>
@@ -982,14 +1169,58 @@
       let currentCase = 1;
       const totalCases = 6;
       let explanationsShown = {};
+      let userScores = {
+        utilitarismo: 0,
+        deontologica: 0,
+        virtud: 0,
+      };
+
+      // Mapa de opciones y su categoría filosófica
+      const philosophyMap = {
+        "case1-option1": "utilitarismo",
+        "case1-option2": "deontologica",
+        "case1-option3": "virtud",
+        "case2-option1": "virtud",
+        "case2-option2": "utilitarismo",
+        "case2-option3": "deontologica",
+        "case3-option1": "deontologica",
+        "case3-option2": "utilitarismo",
+        "case3-option3": "virtud",
+        "case4-option1": "utilitarismo",
+        "case4-option2": "deontologica",
+        "case4-option3": "virtud",
+        "case5-option1": "utilitarismo",
+        "case5-option2": "deontologica",
+        "case5-option3": "virtud",
+        "case6-option1": "utilitarismo",
+        "case6-option2": "deontologica",
+        "case6-option3": "virtud",
+      };
+
+      const philosophyDescriptions = {
+        utilitarismo:
+          "Tu pensamiento tiende hacia el <strong>utilitarismo</strong>. Valoras los resultados y consecuencias de las acciones por encima de todo. Para ti, lo más importante es maximizar el bienestar general, incluso si eso significa a veces sacrificar principios absolutos.",
+        deontologica:
+          "Tu pensamiento tiende hacia la <strong>ética deontológica</strong>. Crees en principios morales universales y reglas que deben seguirse independientemente de las consecuencias. Para ti, hay líneas que no deben cruzarse, sin importar los beneficios potenciales.",
+        virtud:
+          "Tu pensamiento tiende hacia la <strong>ética de la virtud</strong>. Te enfocas en el desarrollo del carácter y una visión equilibrada de la moral. Consideras importante el contexto, las intenciones y las virtudes de la persona que actúa, más allá de reglas absolutas o cálculos de utilidad.",
+      };
 
       function startExperience() {
         document.getElementById("startScreen").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
+        animateProgressBar();
       }
 
       function showExplanation(caseId, optionId) {
-        // Hide all explanations for this case
+        // Añadir clase selected a la opción elegida
+        const options = document.querySelectorAll(`#${caseId} .option`);
+        options.forEach((opt) => {
+          opt.classList.remove("selected");
+        });
+        event.target.classList.add("selected");
+
+        // Ocultar todas las explicaciones para este caso
         const explanations = document.querySelectorAll(
           `#${caseId} .explanation`
         );
@@ -997,53 +1228,74 @@
           exp.style.display = "none";
         });
 
-        // Show the selected explanation
+        // Mostrar la explicación seleccionada
         document.getElementById(`${caseId}-${optionId}`).style.display =
           "block";
 
-        // Enable next button
-        if (caseId === "case1") {
-          document.getElementById("case1Next").disabled = false;
-        } else if (caseId === "case2") {
-          document.getElementById("case2Next").disabled = false;
+        // Habilitar botón siguiente
+        const nextButton = document.getElementById(`${caseId}Next`);
+        if (nextButton) {
+          nextButton.disabled = false;
         }
 
-        // Mark this case as having an explanation shown
+        // Registrar la respuesta para resultados finales
+        const philosophy = philosophyMap[`${caseId}-${optionId}`];
+        if (philosophy && !explanationsShown[caseId]) {
+          userScores[philosophy] += 1;
+        }
+
+        // Marcar este caso como respondido
         explanationsShown[caseId] = true;
       }
 
       function nextCase() {
-        // Only proceed if an option has been selected for the current case
+        // Solo proceder si se ha seleccionado una opción para el caso actual
         if (!explanationsShown[`case${currentCase}`]) {
           alert("Por favor, selecciona una respuesta antes de continuar.");
           return;
         }
 
-        // Hide current case
+        // Ocultar caso actual
         document
           .getElementById(`case${currentCase}`)
           .classList.remove("active");
 
-        // Show next case
+        // Mostrar siguiente caso
         currentCase++;
         document.getElementById(`case${currentCase}`).classList.add("active");
 
-        // Update progress dots
+        // Actualizar puntos de progreso
         updateProgressDots();
+
+        // Scroll arriba
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+
+        animateProgressBar();
       }
 
       function prevCase() {
-        // Hide current case
+        // Ocultar caso actual
         document
           .getElementById(`case${currentCase}`)
           .classList.remove("active");
 
-        // Show previous case
+        // Mostrar caso anterior
         currentCase--;
         document.getElementById(`case${currentCase}`).classList.add("active");
 
-        // Update progress dots
+        // Actualizar puntos de progreso
         updateProgressDots();
+
+        // Scroll arriba
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+
+        animateProgressBar();
       }
 
       function updateProgressDots() {
@@ -1058,22 +1310,101 @@
       }
 
       function finishExperience() {
-        // Only proceed if an option has been selected for the current case
+        // Solo proceder si se ha seleccionado una opción para el caso actual
         if (!explanationsShown[`case${currentCase}`]) {
           alert("Por favor, selecciona una respuesta antes de continuar.");
           return;
         }
 
+        // Preparar resultados
+        prepareResults();
+
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("finalScreen").style.display = "block";
       }
 
+      function prepareResults() {
+        // Encontrar el puntaje más alto
+        const totalResponses = Object.values(userScores).reduce(
+          (a, b) => a + b,
+          0
+        );
+        const resultsContainer = document.getElementById("resultsContainer");
+        resultsContainer.innerHTML = "";
+
+        // Ordenar resultados de mayor a menor
+        const sortedPhilosophies = Object.keys(userScores).sort(
+          (a, b) => userScores[b] - userScores[a]
+        );
+
+        // Crear barras de progreso para cada categoría
+        sortedPhilosophies.forEach((philosophy) => {
+          const percentage = Math.round(
+            (userScores[philosophy] / totalResponses) * 100
+          );
+
+          const categoryDiv = document.createElement("div");
+          categoryDiv.className = "result-category";
+
+          const title = document.createElement("h3");
+          title.textContent =
+            philosophy.charAt(0).toUpperCase() + philosophy.slice(1);
+
+          const description = document.createElement("p");
+          description.innerHTML = philosophyDescriptions[philosophy];
+
+          const progressContainer = document.createElement("div");
+          progressContainer.className = "progress-bar-container";
+
+          const progressBar = document.createElement("div");
+          progressBar.className = "progress-bar";
+          progressBar.style.width = "0%"; // Empezará en 0 y animará con JS
+
+          const progressLabel = document.createElement("div");
+          progressLabel.className = "progress-label";
+          progressLabel.textContent = `${percentage}%`;
+
+          progressContainer.appendChild(progressBar);
+
+          categoryDiv.appendChild(title);
+          categoryDiv.appendChild(description);
+          categoryDiv.appendChild(progressContainer);
+          categoryDiv.appendChild(progressLabel);
+
+          resultsContainer.appendChild(categoryDiv);
+
+          // Animar la barra después de que se añada al DOM
+          setTimeout(() => {
+            progressBar.style.width = `${percentage}%`;
+          }, 100);
+        });
+
+        // Destacar la inclinación dominante
+        const dominantPhilosophy = sortedPhilosophies[0];
+        const conclusionDiv = document.createElement("div");
+        conclusionDiv.innerHTML = `<h3>Tu perspectiva dominante</h3>
+                              <p>Basado en tus respuestas, tu inclinación filosófica principal es hacia la 
+                              <strong>${dominantPhilosophy.toUpperCase()}</strong>.</p>`;
+        resultsContainer.appendChild(conclusionDiv);
+      }
+
       function restartExperience() {
-        // Reset all states
+        // Reiniciar todos los estados
         currentCase = 1;
         explanationsShown = {};
+        userScores = {
+          utilitarismo: 0,
+          deontologica: 0,
+          virtud: 0,
+        };
 
-        // Hide all cases except the first one
+        // Deseleccionar todas las opciones
+        const selectedOptions = document.querySelectorAll(".option.selected");
+        selectedOptions.forEach((opt) => {
+          opt.classList.remove("selected");
+        });
+
+        // Ocultar todos los casos excepto el primero
         for (let i = 1; i <= totalCases; i++) {
           const caseElement = document.getElementById(`case${i}`);
           if (i === 1) {
@@ -1082,7 +1413,7 @@
             caseElement.classList.remove("active");
           }
 
-          // Hide all explanations
+          // Ocultar todas las explicaciones
           const explanations = document.querySelectorAll(
             `#case${i} .explanation`
           );
@@ -1091,12 +1422,28 @@
           });
         }
 
-        // Reset progress dots
+        // Reiniciar puntos de progreso
         updateProgressDots();
 
-        // Show main content, hide final screen
+        // Mostrar contenido principal, ocultar pantalla final
         document.getElementById("finalScreen").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
+      }
+
+      function animateProgressBar() {
+        // Añade una animación sutil a elementos de la página
+        const elements = document.querySelectorAll(
+          ".case.active .context, .case.active .options, .case.active .question"
+        );
+        elements.forEach((el, index) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          setTimeout(() => {
+            el.style.transition = "all 0.4s ease-out";
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }, index * 150);
+        });
       }
     </script>
   </body>
