@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debates sobre Crimen y Castigo</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f7f7f7;
+      }
+
+      .container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #2c3e50;
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .case {
+        margin-bottom: 40px;
+        display: none;
+      }
+
+      .case.active {
+        display: block;
+      }
+
+      .context {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-left: 4px solid #2c3e50;
+        margin-bottom: 20px;
+      }
+
+      .question {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .option {
+        padding: 12px 15px;
+        background-color: #ecf0f1;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.2s;
+      }
+
+      .option:hover {
+        background-color: #d5dbdb;
+      }
+
+      .explanation {
+        padding: 20px;
+        background-color: #e8f4f8;
+        border-radius: 4px;
+        margin-top: 20px;
+        display: none;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      .nav-button {
+        padding: 10px 20px;
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .nav-button:hover {
+        background-color: #1a252f;
+      }
+
+      .nav-button:disabled {
+        background-color: #95a5a6;
+        cursor: not-allowed;
+      }
+
+      .progress {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .progress-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #bdc3c7;
+        border-radius: 50%;
+        margin: 0 5px;
+      }
+
+      .progress-dot.active {
+        background-color: #2c3e50;
+      }
+
+      .start-screen {
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      .start-button {
+        padding: 15px 30px;
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .start-button:hover {
+        background-color: #1a252f;
+      }
+
+      .final-screen {
+        text-align: center;
+        padding: 40px 0;
+        display: none;
+      }
+
+      .restart-button {
+        padding: 12px 24px;
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        margin-top: 20px;
+      }
+
+      .restart-button:hover {
+        background-color: #1a252f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="start-screen" id="startScreen">
+        <h1>Debates filosóficos sobre algunos dilemas morales</h1>
+        <p>
+          Explora dilemas morales y filosóficos que pueden surgir en la vida y valen la pena pensar sobre ellos.
+        </p>
+        <button class="start-button" onclick="startExperience()">
+          Comenzar
+        </button>
+      </div>
+
+      <div id="mainContent" style="display: none">
+        <div class="progress">
+          <div class="progress-dot active"></div>
+          <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
+        </div>
+
+        <div class="case active" id="case1">
+          <h1>El mal menor por un bien mayor</h1>
+          <div class="context">
+            <p>
+              El protagonista, Raskólnikov, es un joven estudiante empobrecido
+              en San Petersburgo que comete un asesinato: mata a una vieja
+              prestamista con la justificación de que ella es "inútil y cruel" y
+              que su dinero podría servir para hacer el bien a muchas personas.
+            </p>
+            <p>
+              Él se convence de que eliminarla es un mal menor en comparación
+              con el bien mayor que puede lograr con los recursos obtenidos.
+              Incluso llega a pensar que los grandes hombres de la historia
+              también han quebrado leyes morales por causas superiores.
+            </p>
+            <p>
+              Sin embargo, tras cometer el crimen, Raskólnikov entra en una
+              profunda crisis psicológica y moral, lo que pone en duda toda su
+              justificación inicial.
+            </p>
+          </div>
+          <div class="question">
+            ¿Crees que en algunas circunstancias el mal menor —como el que
+            cometió Raskólnikov— puede justificarse si se busca un supuesto bien
+            mayor?
+          </div>
+          <div class="options">
+            <button
+              class="option"
+              onclick="showExplanation('case1', 'option1')"
+            >
+              Sí, hay situaciones donde el fin justifica los medios
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case1', 'option2')"
+            >
+              No, el mal nunca puede justificarse por un supuesto bien mayor
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case1', 'option3')"
+            >
+              Depende del contexto y las consecuencias reales
+            </button>
+          </div>
+          <div class="explanation" id="case1-option1">
+            <h3>Utilitarismo y consecuencialismo</h3>
+            <p>
+              Tu respuesta se alinea con la perspectiva utilitarista, que evalúa
+              las acciones por sus consecuencias y no por su naturaleza
+              intrínseca. Sin embargo, la novela muestra cómo esta filosofía
+              falla a Raskólnikov:
+            </p>
+            <p>1. El protagonista no logra el "bien mayor" que pretendía</p>
+            <p>
+              2. La tortura psicológica que experimenta sugiere que hay una ley
+              moral interior que no puede ser ignorada
+            </p>
+            <p>
+              3. Dostoyevski cuestiona la capacidad humana para calcular
+              correctamente las consecuencias de nuestros actos
+            </p>
+            <p>
+              La novela invita a reflexionar: ¿quién puede realmente juzgar qué
+              es un "bien mayor" y con qué autoridad decidimos quién debe
+              sacrificarse por ese bien?
+            </p>
+          </div>
+          <div class="explanation" id="case1-option2">
+            <h3>La ética del deber y los valores absolutos</h3>
+            <p>
+              Tu respuesta refleja una postura deontológica (basada en
+              principios), similar a la ética kantiana que considera que hay
+              actos moralmente incorrectos en sí mismos, independientemente de
+              sus consecuencias.
+            </p>
+            <p>
+              Dostoyevski parece inclinarse hacia esta visión, mostrando que:
+            </p>
+            <p>
+              1. El asesinato destruye psicológicamente a Raskólnikov,
+              sugiriendo una ley moral natural
+            </p>
+            <p>
+              2. La redención sólo llega con el reconocimiento de su culpa y la
+              aceptación del castigo
+            </p>
+            <p>
+              3. El personaje de Sonia representa cómo la moral y la compasión
+              son valores absolutos, no negociables
+            </p>
+            <p>
+              Esta perspectiva plantea que hay líneas que no deben cruzarse, sin
+              importar las justificaciones racionales que podamos elaborar.
+            </p>
+          </div>
+          <div class="explanation" id="case1-option3">
+            <h3>La complejidad moral y la humildad epistémica</h3>
+            <p>
+              Tu respuesta sugiere una postura matizada que reconoce la
+              complejidad de los juicios morales. Esta perspectiva es
+              particularmente interesante porque:
+            </p>
+            <p>
+              1. Reconoce la falibilidad humana para predecir consecuencias, un
+              tema central en la novela
+            </p>
+            <p>
+              2. Considera tanto los principios como las consecuencias, similar
+              a la ética de la virtud aristotélica
+            </p>
+            <p>
+              3. Refleja la evolución de Raskólnikov, quien pasa de una teoría
+              abstracta a enfrentar la realidad concreta
+            </p>
+            <p>
+              Dostoyevski parece alertar sobre el peligro de las ideologías
+              absolutas, sugiriendo que la sabiduría moral requiere humildad
+              ante la complejidad de la vida humana y sus dilemas.
+            </p>
+          </div>
+          <div class="navigation">
+            <button class="nav-button" onclick="nextCase()" id="case1Next">
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <div class="case" id="case2">
+          <h1>Autenticidad y transformación</h1>
+          <div class="context">
+            <p>
+              Raskólnikov es un joven estudiante que vive en la pobreza en San
+              Petersburgo. A lo largo de la novela, lucha internamente con una
+              teoría que ha desarrollado: que ciertas personas extraordinarias
+              tienen derecho a cometer crímenes si es por un bien mayor. Para
+              probar esta idea, asesina a una vieja prestamista.
+            </p>
+            <p>
+              La autenticidad se manifiesta en su conflicto entre su ideología
+              racional y su conciencia moral. Intenta actuar como un "hombre
+              extraordinario", pero su auténtico yo —humano, vulnerable y con
+              principios— lo traiciona constantemente.
+            </p>
+            <p>
+              La novela muestra cómo su lucha por ser fiel a una visión irreal
+              de sí mismo lo lleva al sufrimiento, y solo al final, cuando
+              reconoce su humanidad y se rinde al amor y al castigo, se
+              reconcilia con su yo auténtico.
+            </p>
+          </div>
+          <div class="question">
+            ¿Creen que Raskólnikov logra ser auténtico al final de la novela, o
+            su transformación es una forma de rendición ante la sociedad y la
+            moral impuesta?
+          </div>
+          <div class="options">
+            <button
+              class="option"
+              onclick="showExplanation('case2', 'option1')"
+            >
+              Logra ser auténtico al aceptar su verdadera naturaleza
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case2', 'option2')"
+            >
+              Se rinde ante la moral social impuesta, perdiendo su
+              individualidad
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case2', 'option3')"
+            >
+              Su transformación representa una síntesis entre autenticidad y
+              normas sociales
+            </button>
+          </div>
+          <div class="explanation" id="case2-option1">
+            <h3>La autenticidad como reconocimiento del verdadero yo</h3>
+            <p>
+              Esta interpretación sugiere que la teoría del "hombre
+              extraordinario" era una máscara que Raskólnikov usaba para escapar
+              de su verdadera naturaleza. Su transformación final representa
+              entonces:
+            </p>
+            <p>
+              1. El reconocimiento de su humanidad compartida con otros, no su
+              excepcionalidad
+            </p>
+            <p>
+              2. La aceptación de su conciencia moral como parte integral de su
+              identidad
+            </p>
+            <p>
+              3. La capacidad de amar y sentir compasión como su auténtica forma
+              de ser
+            </p>
+            <p>
+              Dostoyevski parece sugerir que la verdadera autenticidad no
+              consiste en la afirmación egoísta del yo contra la sociedad, sino
+              en el reconocimiento de nuestra naturaleza moral compartida.
+            </p>
+          </div>
+          <div class="explanation" id="case2-option2">
+            <h3>La crítica existencialista a la moral convencional</h3>
+            <p>
+              Esta perspectiva, más cercana a lecturas existencialistas o
+              nietzscheanas, ve la transformación de Raskólnikov como una
+              derrota de su individualidad:
+            </p>
+            <p>
+              1. Su aceptación del castigo representa la sumisión a las normas
+              sociales convencionales
+            </p>
+            <p>
+              2. Abandona su búsqueda de una moral personal más allá del bien y
+              del mal tradicionales
+            </p>
+            <p>
+              3. Se somete a la influencia de Sonia, renunciando a su autonomía
+              moral
+            </p>
+            <p>
+              Sin embargo, la novela cuestiona si esta forma de individualismo
+              es realmente viable o deseable, mostrando el aislamiento y
+              sufrimiento que produce en Raskólnikov.
+            </p>
+          </div>
+          <div class="explanation" id="case2-option3">
+            <h3>La dialéctica entre individuo y comunidad</h3>
+            <p>
+              Esta interpretación ve la transformación de Raskólnikov como una
+              resolución dialéctica que supera la oposición entre individualismo
+              y convencionalismo:
+            </p>
+            <p>
+              1. Raskólnikov no renuncia a su individualidad, sino que la
+              redefine en relación con los demás
+            </p>
+            <p>
+              2. Reconoce que la verdadera libertad no está en la transgresión,
+              sino en la responsabilidad moral
+            </p>
+            <p>
+              3. Descubre que la autenticidad incluye reconocer nuestra
+              interdependencia con los demás
+            </p>
+            <p>
+              Dostoyevski parece sugerir que la auténtica individualidad no se
+              desarrolla contra la comunidad, sino en diálogo con ella, y que
+              aceptar la responsabilidad moral es parte de la maduración
+              personal.
+            </p>
+          </div>
+          <div class="navigation">
+            <button class="nav-button" onclick="prevCase()">Anterior</button>
+            <button class="nav-button" onclick="nextCase()" id="case2Next">
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <div class="case" id="case3">
+          <h1>La vida bien lograda</h1>
+          <div class="context">
+            <p>
+              En la novela, Raskólnikov cree que una vida bien lograda es
+              aquella en la que se trasciende la mediocridad, se actúa con
+              voluntad propia y se tiene impacto en el mundo, incluso si eso
+              implica romper las reglas morales. Su idea está influida por
+              teorías filosóficas como el utilitarismo y el superhombre de
+              Nietzsche (aunque Dostoyevski lo anticipa).
+            </p>
+            <p>
+              Por otro lado, Sonia, que vive en la miseria y se sacrifica por su
+              familia, representa una vida bien lograda desde la perspectiva
+              cristiana: una existencia guiada por el amor, la fe, la compasión
+              y el sufrimiento redentor.
+            </p>
+            <p>
+              Así, la novela contrapone dos visiones: la vida basada en el poder
+              y la racionalidad vs. la vida basada en el amor y el sacrificio.
+            </p>
+          </div>
+          <div class="question">
+            ¿Qué visión de la vida bien lograda plantea finalmente Dostoyevski
+            en la novela: la del poder individual o la del amor y el sufrimiento
+            compartido?
+          </div>
+          <div class="options">
+            <button
+              class="option"
+              onclick="showExplanation('case3', 'option1')"
+            >
+              La del amor y el sufrimiento compartido
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case3', 'option2')"
+            >
+              La del poder individual y la voluntad propia
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case3', 'option3')"
+            >
+              Una síntesis de ambas visiones
+            </button>
+          </div>
+          <div class="explanation" id="case3-option1">
+            <h3>La visión cristiana de Dostoyevski</h3>
+            <p>
+              Esta interpretación, muy alineada con la propia fe cristiana
+              ortodoxa de Dostoyevski, ve el desenlace de la novela como la
+              afirmación de que:
+            </p>
+            <p>
+              1. La redención de Raskólnikov viene a través del amor de Sonia y
+              su capacidad de sacrificio
+            </p>
+            <p>
+              2. El sufrimiento, cuando es compartido y aceptado, tiene valor
+              transformador y redentor
+            </p>
+            <p>
+              3. La vida bien lograda no se mide por el éxito individual, sino
+              por la capacidad de amar y conectar con los demás
+            </p>
+            <p>
+              La transformación final de Raskólnikov sugiere que Dostoyevski ve
+              en el amor cristiano, y no en el poder nietzscheano, el verdadero
+              camino hacia una vida significativa y auténtica.
+            </p>
+          </div>
+          <div class="explanation" id="case3-option2">
+            <h3>La persistencia del ideal heroico</h3>
+            <p>
+              Esta lectura, menos convencional pero defendible, sugiere que
+              Dostoyevski no abandona completamente el ideal de grandeza
+              individual:
+            </p>
+            <p>
+              1. Raskólnikov no renuncia a su excepcionalidad, sino que la
+              redefine
+            </p>
+            <p>
+              2. Su sufrimiento y posterior redención lo confirman como alguien
+              extraordinario, no común
+            </p>
+            <p>
+              3. La novela puede leerse como una crítica no al ideal de
+              grandeza, sino a los medios elegidos para alcanzarla
+            </p>
+            <p>
+              Esta interpretación ve a Dostoyevski no como un simple defensor
+              del conformismo cristiano, sino como alguien que busca un camino
+              alternativo hacia la grandeza individual, compatible con la moral.
+            </p>
+          </div>
+          <div class="explanation" id="case3-option3">
+            <h3>La dialéctica entre individualidad y comunidad</h3>
+            <p>
+              Esta lectura ve la novela como una síntesis que trasciende la
+              oposición entre individualismo y comunitarismo:
+            </p>
+            <p>
+              1. Dostoyevski valora tanto la aspiración individual a la grandeza
+              como la capacidad humana de amar
+            </p>
+            <p>
+              2. Critica tanto el individualismo extremo como el conformismo
+              social vacío
+            </p>
+            <p>
+              3. Propone una vida bien lograda donde la individualidad se
+              realiza en comunión con los demás
+            </p>
+            <p>
+              Según esta visión, la novela no ofrece una solución simplista sino
+              que invita a cada lector a encontrar su propio equilibrio entre la
+              afirmación de su individualidad y su conexión con la humanidad
+              compartida.
+            </p>
+          </div>
+          <div class="navigation">
+            <button class="nav-button" onclick="prevCase()">Anterior</button>
+            <button class="nav-button" onclick="nextCase()" id="case3Next">
+              Siguiente
+            </button>
+          </div>
+        </div>
+        <div class="case" id="case4">
+          <h1>El principio de la máxima felicidad</h1>
+          <div class="context">
+            <p>
+              Anna Fitzgerald es una niña concebida por medio de fertilización
+              in vitro con el propósito de ser genéticamente compatible con su
+              hermana mayor Kate, quien sufre de leucemia. Desde pequeña, Anna
+              ha sido sometida a múltiples intervenciones médicas (extracción de
+              células madre, transfusiones, etc.) para mantener viva a Kate.
+            </p>
+            <p>
+              Cuando Kate necesita un trasplante de riñón, Anna toma una
+              decisión inesperada: demanda a sus propios padres para obtener la
+              emancipación médica, es decir, el derecho a decidir sobre su
+              propio cuerpo y no verse obligada a donar su riñón.
+            </p>
+            <p>
+              Este dilema familiar expone un profundo conflicto ético entre el
+              amor, el deber y el derecho a la autonomía personal.
+            </p>
+          </div>
+          <div class="question">
+            ¿Está justificado moralmente que Anna se sacrifique por su hermana
+            si esto trae la mayor felicidad a su familia? ¿O deben respetarse
+            los derechos individuales aunque eso implique consecuencias
+            dolorosas?
+          </div>
+          <div class="options">
+            <button
+              class="option"
+              onclick="showExplanation('case4', 'option1')"
+            >
+              Sí, el sacrificio está justificado por la felicidad familiar
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case4', 'option2')"
+            >
+              No, los derechos individuales son inviolables
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case4', 'option3')"
+            >
+              Depende de las circunstancias y la voluntad genuina
+            </button>
+          </div>
+          <div class="explanation" id="case4-option1">
+            <h3>El utilitarismo y el bien común</h3>
+            <p>
+              Esta perspectiva refleja el principio utilitarista de la máxima
+              felicidad o del mayor bien para el mayor número:
+            </p>
+            <p>
+              1. El sacrificio de Anna produciría un beneficio mayor (salvar la
+              vida de Kate y evitar el sufrimiento familiar)
+            </p>
+            <p>
+              2. El valor del bienestar colectivo supera los derechos
+              individuales en situaciones extremas
+            </p>
+            <p>
+              3. Los lazos familiares implican obligaciones morales especiales
+              que justifican ciertos sacrificios
+            </p>
+            <p>
+              Sin embargo, esta postura plantea interrogantes sobre quién tiene
+              derecho a decidir cuándo el bien común justifica la restricción de
+              libertades individuales y hasta qué punto puede exigirse el
+              sacrificio a alguien.
+            </p>
+          </div>
+          <div class="explanation" id="case4-option2">
+            <h3>La autonomía personal y los derechos inalienables</h3>
+            <p>
+              Esta perspectiva defiende una postura basada en derechos
+              fundamentales:
+            </p>
+            <p>
+              1. Cada persona es dueña de su propio cuerpo y tiene derecho a
+              decidir sobre él
+            </p>
+            <p>
+              2. Instrumentalizar a una persona (crear a Anna para salvar a
+              Kate) viola el principio kantiano de tratar a las personas como
+              fines y no como medios
+            </p>
+            <p>
+              3. Los derechos no pueden sacrificarse en nombre de consecuencias
+              benéficas
+            </p>
+            <p>
+              Esta posición cuestiona si es ético concebir un hijo con el
+              propósito específico de salvar a otro, y defiende que incluso con
+              fines nobles, hay límites morales que no deben cruzarse.
+            </p>
+          </div>
+          <div class="explanation" id="case4-option3">
+            <h3>Ética contextual y autonomía relacional</h3>
+            <p>Esta posición matizada reconoce la complejidad del caso:</p>
+            <p>
+              1. La autonomía se desarrolla en contextos de relaciones y no de
+              forma aislada
+            </p>
+            <p>
+              2. El consentimiento genuino y voluntario es clave: un sacrificio
+              elegido libremente es diferente de uno impuesto
+            </p>
+            <p>
+              3. La edad y madurez de Anna influyen en su capacidad para tomar
+              decisiones completamente autónomas
+            </p>
+            <p>
+              Esta perspectiva sugiere que las decisiones morales deben
+              considerar tanto los principios como el contexto específico, y que
+              la autonomía personal existe en tensión con nuestras
+              responsabilidades hacia los demás.
+            </p>
+          </div>
+          <div class="navigation">
+            <button class="nav-button" onclick="prevCase()">Anterior</button>
+            <button class="nav-button" onclick="nextCase()" id="case4Next">
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <div class="case" id="case5">
+          <h1>El mal menor en The Dark Knight</h1>
+          <div class="context">
+            <p>
+              En la película The Dark Knight, el Joker, un villano anárquico,
+              presenta a Batman y a las autoridades de Gotham un dilema moral:
+              ha colocado explosivos en dos barcos, uno con civiles y otro con
+              prisioneros. Les da a ambos grupos un detonador que supuestamente
+              puede volar el otro barco. Si ninguno actúa, ambos barcos
+              explotarán a la medianoche.
+            </p>
+            <p>
+              Batman, mientras tanto, también enfrenta otro dilema: torturar o
+              violentar los derechos de personas para obtener información que
+              podría salvar vidas. A lo largo de la película, él y otros
+              personajes deben decidir entre dos males, buscando el "mal menor".
+            </p>
+          </div>
+          <div class="question">
+            ¿Es moralmente aceptable causar un mal menor para evitar un mal
+            mayor, como matar a unos pocos para salvar a muchos? ¿O hay límites
+            éticos que no deben cruzarse, sin importar las consecuencias?
+          </div>
+          <div class="options">
+            <button
+              class="option"
+              onclick="showExplanation('case5', 'option1')"
+            >
+              Sí, el fin justifica los medios en situaciones extremas
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case5', 'option2')"
+            >
+              No, ciertos actos son moralmente incorrectos sin importar las
+              consecuencias
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case5', 'option3')"
+            >
+              Depende de las circunstancias y los valores en juego
+            </button>
+          </div>
+          <div class="explanation" id="case5-option1">
+            <h3>La ética consecuencialista</h3>
+            <p>
+              Esta posición, alineada con el utilitarismo, evalúa la moralidad
+              de los actos por sus resultados:
+            </p>
+            <p>
+              1. En situaciones extremas, se justifica causar un daño menor para
+              evitar uno mayor
+            </p>
+            <p>
+              2. La responsabilidad moral incluye considerar las consecuencias
+              de la inacción
+            </p>
+            <p>
+              3. La perfección moral es imposible en un mundo imperfecto;
+              debemos elegir el menor de los males
+            </p>
+            <p>
+              Sin embargo, la película parece cuestionar esta lógica, mostrando
+              cómo el cálculo utilitario puede conducir a una pendiente
+              resbaladiza donde cada vez se justifican actos más cuestionables
+              en nombre del "bien mayor".
+            </p>
+          </div>
+          <div class="explanation" id="case5-option2">
+            <h3>La ética deontológica</h3>
+            <p>
+              Esta posición, inspirada en Kant, sostiene que ciertas acciones
+              son intrínsecamente incorrectas:
+            </p>
+            <p>
+              1. La tortura, el asesinato o la violación de derechos
+              fundamentales son moralmente incorrectos por su naturaleza
+            </p>
+            <p>
+              2. Usar a personas como medios (sacrificar a unos por otros) viola
+              la dignidad humana
+            </p>
+            <p>
+              3. Cruzar ciertos límites morales corrompe al individuo y a la
+              sociedad a largo plazo
+            </p>
+            <p>
+              Batman parece inclinarse hacia esta visión cuando rechaza matar al
+              Joker a pesar de las consecuencias, manteniendo su código moral
+              como una línea que no cruzará.
+            </p>
+          </div>
+          <div class="explanation" id="case5-option3">
+            <h3>La ética de la virtud y el carácter moral</h3>
+            <p>
+              Esta posición más matizada sugiere que la moralidad no se reduce a
+              reglas absolutas ni a cálculos de consecuencias:
+            </p>
+            <p>
+              1. Lo que importa es el carácter y las intenciones de quien actúa
+            </p>
+            <p>
+              2. Cada situación requiere un juicio prudencial que considere el
+              contexto específico
+            </p>
+            <p>
+              3. Las virtudes como la compasión, la justicia y la integridad
+              deben guiar nuestras decisiones
+            </p>
+            <p>
+              The Dark Knight explora esta complejidad mostrando cómo diferentes
+              personajes (Batman, Gordon, Dent) responden de manera distinta
+              ante dilemas similares, revelando su verdadero carácter moral.
+            </p>
+          </div>
+          <div class="navigation">
+            <button class="nav-button" onclick="prevCase()">Anterior</button>
+            <button class="nav-button" onclick="nextCase()" id="case5Next">
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <div class="case" id="case6">
+          <h1>Relativismo cultural en Los Juegos del Hambre</h1>
+          <div class="context">
+            <p>
+              En "Los Juegos del Hambre", Panem es un país dividido en 12
+              distritos controlados por el Capitolio. Como castigo por una
+              rebelión pasada, cada año un niño y una niña de cada distrito son
+              seleccionados para participar en los Juegos del Hambre, donde
+              deben luchar a muerte hasta que solo quede uno.
+            </p>
+            <p>
+              Mientras que en los distritos pobres los juegos son vistos como
+              una barbarie forzada, en el Capitolio son considerados un
+              entretenimiento sofisticado, un espectáculo glamuroso al que el
+              público asiste con entusiasmo.
+            </p>
+            <p>
+              La protagonista, Katniss Everdeen, se ofrece como voluntaria para
+              reemplazar a su hermana pequeña y comienza a cuestionar este
+              sistema y sus reglas.
+            </p>
+          </div>
+          <div class="question">
+            ¿Es válido justificar prácticas inhumanas si son aceptadas
+            culturalmente? ¿El relativismo moral permite comprender mejor otras
+            realidades o puede ser un peligro al justificar cualquier cosa?
+          </div>
+          <div class="options">
+            <button
+              class="option"
+              onclick="showExplanation('case6', 'option1')"
+            >
+              Sí, debemos respetar las diferencias culturales y sus valores
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case6', 'option2')"
+            >
+              No, existen valores universales que trascienden las culturas
+            </button>
+            <button
+              class="option"
+              onclick="showExplanation('case6', 'option3')"
+            >
+              Es necesario un equilibrio entre comprensión cultural y principios
+              universales
+            </button>
+          </div>
+          <div class="explanation" id="case6-option1">
+            <h3>El relativismo cultural y la tolerancia</h3>
+            <p>
+              Esta perspectiva destaca la importancia de no juzgar otras
+              culturas desde nuestros propios valores:
+            </p>
+            <p>
+              1. Las prácticas culturales solo pueden entenderse dentro de su
+              propio contexto
+            </p>
+            <p>
+              2. No existe una posición neutral desde la cual juzgar otras
+              culturas
+            </p>
+            <p>
+              3. La imposición de valores "universales" puede ser una forma de
+              imperialismo cultural
+            </p>
+            <p>
+              Sin embargo, la novela parece cuestionar esta postura al mostrar
+              cómo el relativismo puede servir para justificar la opresión y la
+              deshumanización, como ocurre con los ciudadanos del Capitolio que
+              normalizan la muerte de niños como entretenimiento.
+            </p>
+          </div>
+          <div class="explanation" id="case6-option2">
+            <h3>El universalismo moral y los derechos humanos</h3>
+            <p>
+              Esta perspectiva defiende la existencia de valores morales
+              universales:
+            </p>
+            <p>
+              1. Ciertas prácticas (como matar niños por entretenimiento) son
+              incorrectas independientemente del contexto cultural
+            </p>
+            <p>
+              2. La dignidad humana y el derecho a la vida son valores
+              universales que trascienden culturas
+            </p>
+            <p>
+              3. El relativismo extremo puede paralizar nuestra capacidad de
+              juicio moral y resistencia a la opresión
+            </p>
+            <p>
+              La rebelión de Katniss sugiere que Collins simpatiza con esta
+              visión, mostrando que incluso en un mundo donde los Juegos son
+              "normales", existe una intuición moral que los reconoce como
+              injustos.
+            </p>
+          </div>
+          <div class="explanation" id="case6-option3">
+            <h3>Pluralismo crítico</h3>
+            <p>
+              Esta posición intermedia busca un equilibrio entre comprender
+              contextos culturales y mantener principios fundamentales:
+            </p>
+            <p>
+              1. Debemos intentar comprender prácticas culturales en su contexto
+              histórico y social
+            </p>
+            <p>
+              2. La comprensión no implica aprobación ni impide la crítica moral
+            </p>
+            <p>
+              3. El diálogo intercultural puede ayudar a expandir nuestra visión
+              moral
+            </p>
+            <p>
+              "Los Juegos del Hambre" ilustra este dilema: la obra nos invita a
+              entender cómo una sociedad puede normalizar la violencia, pero
+              simultáneamente nos pide que reconozcamos su fundamental
+              injusticia y la necesidad de resistencia.
+            </p>
+          </div>
+          <div class="navigation">
+            <button class="nav-button" onclick="prevCase()">Anterior</button>
+            <button class="nav-button" onclick="finishExperience()">
+              Finalizar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="final-screen" id="finalScreen">
+        <h1>¡Gracias por participar!</h1>
+        <p>
+          Has completado todos los debates filosóficos y dilemas morales que existen en el mundo
+        </p>
+        <p>
+          Este ejercicio te ha permitido explorar diferentes perspectivas sobre
+          dilemas morales y filosóficos que valen la pena ponernos a pensar.
+        </p>
+        <button class="restart-button" onclick="restartExperience()">
+          Volver a empezar
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let currentCase = 1;
+      const totalCases = 6;
+      let explanationsShown = {};
+
+      function startExperience() {
+        document.getElementById("startScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+      }
+
+      function showExplanation(caseId, optionId) {
+        // Hide all explanations for this case
+        const explanations = document.querySelectorAll(
+          `#${caseId} .explanation`
+        );
+        explanations.forEach((exp) => {
+          exp.style.display = "none";
+        });
+
+        // Show the selected explanation
+        document.getElementById(`${caseId}-${optionId}`).style.display =
+          "block";
+
+        // Enable next button
+        if (caseId === "case1") {
+          document.getElementById("case1Next").disabled = false;
+        } else if (caseId === "case2") {
+          document.getElementById("case2Next").disabled = false;
+        }
+
+        // Mark this case as having an explanation shown
+        explanationsShown[caseId] = true;
+      }
+
+      function nextCase() {
+        // Only proceed if an option has been selected for the current case
+        if (!explanationsShown[`case${currentCase}`]) {
+          alert("Por favor, selecciona una respuesta antes de continuar.");
+          return;
+        }
+
+        // Hide current case
+        document
+          .getElementById(`case${currentCase}`)
+          .classList.remove("active");
+
+        // Show next case
+        currentCase++;
+        document.getElementById(`case${currentCase}`).classList.add("active");
+
+        // Update progress dots
+        updateProgressDots();
+      }
+
+      function prevCase() {
+        // Hide current case
+        document
+          .getElementById(`case${currentCase}`)
+          .classList.remove("active");
+
+        // Show previous case
+        currentCase--;
+        document.getElementById(`case${currentCase}`).classList.add("active");
+
+        // Update progress dots
+        updateProgressDots();
+      }
+
+      function updateProgressDots() {
+        const dots = document.querySelectorAll(".progress-dot");
+        dots.forEach((dot, index) => {
+          if (index + 1 === currentCase) {
+            dot.classList.add("active");
+          } else {
+            dot.classList.remove("active");
+          }
+        });
+      }
+
+      function finishExperience() {
+        // Only proceed if an option has been selected for the current case
+        if (!explanationsShown[`case${currentCase}`]) {
+          alert("Por favor, selecciona una respuesta antes de continuar.");
+          return;
+        }
+
+        document.getElementById("mainContent").style.display = "none";
+        document.getElementById("finalScreen").style.display = "block";
+      }
+
+      function restartExperience() {
+        // Reset all states
+        currentCase = 1;
+        explanationsShown = {};
+
+        // Hide all cases except the first one
+        for (let i = 1; i <= totalCases; i++) {
+          const caseElement = document.getElementById(`case${i}`);
+          if (i === 1) {
+            caseElement.classList.add("active");
+          } else {
+            caseElement.classList.remove("active");
+          }
+
+          // Hide all explanations
+          const explanations = document.querySelectorAll(
+            `#case${i} .explanation`
+          );
+          explanations.forEach((exp) => {
+            exp.style.display = "none";
+          });
+        }
+
+        // Reset progress dots
+        updateProgressDots();
+
+        // Show main content, hide final screen
+        document.getElementById("finalScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
