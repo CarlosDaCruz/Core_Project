@@ -8,26 +8,30 @@
       body {
         font-family: "Helvetica Neue", Arial, sans-serif;
         line-height: 1.6;
-        color: #333;
+        color: #e0e0e0;
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
-        background-color: #f7f7f7;
+        background-color: #121212;
+        background-image: linear-gradient(to bottom, #121212, #1a1a1a);
       }
 
       .container {
-        background-color: white;
+        background-color: #1e1e1e;
         border-radius: 8px;
         padding: 30px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        border: 1px solid #333;
       }
 
       h1 {
-        color: #2c3e50;
+        color: #ff3a4a;
         font-size: 28px;
         margin-bottom: 20px;
         text-align: center;
         font-weight: 500;
+        text-shadow: 0 0 10px rgba(255, 58, 74, 0.4);
+        letter-spacing: 1px;
       }
 
       .case {
@@ -37,19 +41,22 @@
 
       .case.active {
         display: block;
+        animation: pulsate 1.5s ease-out;
       }
 
       .context {
-        background-color: #f5f5f5;
+        background-color: #252525;
         padding: 20px;
-        border-left: 4px solid #2c3e50;
+        border-left: 4px solid #ff3a4a;
         margin-bottom: 20px;
+        box-shadow: 0 0 15px rgba(255, 58, 74, 0.2);
       }
 
       .question {
         font-weight: bold;
         font-size: 18px;
         margin-bottom: 15px;
+        color: #ff8c94;
       }
 
       .options {
@@ -61,24 +68,37 @@
 
       .option {
         padding: 12px 15px;
-        background-color: #ecf0f1;
+        background-color: #2a2a2a;
         border: none;
         border-radius: 4px;
         cursor: pointer;
         text-align: left;
-        transition: background-color 0.2s;
+        transition: all 0.3s;
+        color: #e0e0e0;
+        border-left: 3px solid #333;
       }
 
       .option:hover {
-        background-color: #d5dbdb;
+        background-color: #3a3a3a;
+        border-left: 3px solid #ff3a4a;
+        transform: translateX(5px);
+        box-shadow: 0 0 10px rgba(255, 58, 74, 0.2);
+      }
+
+      .option.selected {
+        background-color: #3a3a3a;
+        border-left: 3px solid #ff3a4a;
+        box-shadow: 0 0 15px rgba(255, 58, 74, 0.3);
       }
 
       .explanation {
         padding: 20px;
-        background-color: #e8f4f8;
+        background-color: #252525;
         border-radius: 4px;
         margin-top: 20px;
         display: none;
+        border-left: 4px solid #8a2be2;
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
       }
 
       .navigation {
@@ -89,21 +109,27 @@
 
       .nav-button {
         padding: 10px 20px;
-        background-color: #2c3e50;
+        background-color: #ff3a4a;
         color: white;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.2s;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
       }
 
       .nav-button:hover {
-        background-color: #1a252f;
+        background-color: #d62839;
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(255, 58, 74, 0.4);
       }
 
       .nav-button:disabled {
-        background-color: #95a5a6;
+        background-color: #444;
         cursor: not-allowed;
+        box-shadow: none;
       }
 
       .progress {
@@ -115,13 +141,15 @@
       .progress-dot {
         width: 10px;
         height: 10px;
-        background-color: #bdc3c7;
+        background-color: #444;
         border-radius: 50%;
         margin: 0 5px;
+        transition: all 0.3s;
       }
 
       .progress-dot.active {
-        background-color: #2c3e50;
+        background-color: #ff3a4a;
+        box-shadow: 0 0 10px rgba(255, 58, 74, 0.6);
       }
 
       .start-screen {
@@ -131,17 +159,21 @@
 
       .start-button {
         padding: 15px 30px;
-        background-color: #2c3e50;
+        background-color: #ff3a4a;
         color: white;
         border: none;
         border-radius: 4px;
         font-size: 18px;
         cursor: pointer;
-        transition: background-color 0.2s;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 2px;
       }
 
       .start-button:hover {
-        background-color: #1a252f;
+        background-color: #d62839;
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px rgba(255, 58, 74, 0.5);
       }
 
       .final-screen {
@@ -152,100 +184,21 @@
 
       .restart-button {
         padding: 12px 24px;
-        background-color: #2c3e50;
+        background-color: #ff3a4a;
         color: white;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.2s;
+        transition: all 0.3s;
         margin-top: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
       .restart-button:hover {
-        background-color: #1a252f;
-      }
-
-      /* Mejoras visuales */
-      body {
-        background-color: #f0f2f5;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      .container {
-        max-width: 850px;
-        border-radius: 12px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        margin-top: 20px;
-        margin-bottom: 20px;
-        transition: all 0.3s ease;
-      }
-
-      h1 {
-        font-size: 30px;
-        margin-bottom: 25px;
-        color: #1a365d;
-        font-weight: 600;
-      }
-
-      .context {
-        border-radius: 8px;
-        background-color: #f8f9fa;
-        border-left: 5px solid #3182ce;
-        padding: 25px;
-        margin-bottom: 30px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      }
-
-      .option {
-        background-color: #edf2f7;
-        border-radius: 8px;
-        padding: 15px 20px;
-        font-size: 16px;
-        transition: all 0.2s ease;
-        border-left: 3px solid transparent;
-      }
-
-      .option:hover {
-        background-color: #e2e8f0;
-        border-left: 3px solid #3182ce;
-        transform: translateX(5px);
-      }
-
-      .option.selected {
-        background-color: #ebf8ff;
-        border-left: 3px solid #3182ce;
-        font-weight: 500;
-      }
-
-      .explanation {
-        background-color: #e6fffa;
-        border-radius: 8px;
-        padding: 25px;
-        border-left: 4px solid #38b2ac;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        margin-top: 25px;
-        margin-bottom: 25px;
-      }
-
-      .explanation h3 {
-        color: #2c5282;
-        margin-top: 0;
-        margin-bottom: 15px;
-      }
-
-      .nav-button {
-        background-color: #3182ce;
-        color: white;
-        padding: 12px 25px;
-        border-radius: 6px;
-        font-weight: 500;
-        transition: all 0.2s ease;
-      }
-
-      .nav-button:hover {
-        background-color: #2c5282;
+        background-color: #d62839;
         transform: translateY(-2px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 15px rgba(255, 58, 74, 0.4);
       }
 
       .case-image {
@@ -254,7 +207,13 @@
         object-fit: cover;
         border-radius: 8px;
         margin-bottom: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        filter: brightness(0.8) contrast(1.2);
+        transition: all 0.5s;
+      }
+
+      .case-image:hover {
+        filter: brightness(1) contrast(1.1);
       }
 
       /* Animaciones */
@@ -269,50 +228,94 @@
         }
       }
 
+      @keyframes pulsate {
+        0% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
       .case {
-        animation: fadeIn 0.5s ease-out;
+        animation: fadeIn 0.7s ease-out;
       }
 
       .explanation {
-        animation: fadeIn 0.5s ease-out;
+        animation: fadeIn 0.7s ease-out;
       }
 
       /* Sistema de resultados */
       .result-category {
-        background-color: #ebf8ff;
+        background-color: #252525;
         border-radius: 8px;
         padding: 20px;
         margin-bottom: 15px;
-        border-left: 4px solid #3182ce;
+        border-left: 4px solid #ff3a4a;
+        box-shadow: 0 0 15px rgba(255, 58, 74, 0.2);
       }
 
       .result-category h3 {
         margin-top: 0;
-        color: #2c5282;
+        color: #ff8c94;
       }
 
       .progress-bar-container {
         width: 100%;
-        background-color: #e2e8f0;
+        background-color: #333;
         height: 10px;
         border-radius: 5px;
         margin-top: 10px;
         margin-bottom: 5px;
+        overflow: hidden;
       }
 
       .progress-bar {
         height: 100%;
         border-radius: 5px;
-        background-color: #3182ce;
+        background: linear-gradient(90deg, #ff3a4a, #8a2be2);
         transition: width 0.5s ease-out;
+        box-shadow: 0 0 8px rgba(255, 58, 74, 0.4);
       }
 
       .progress-label {
         text-align: right;
         font-size: 14px;
-        color: #4a5568;
+        color: #aaa;
       }
-    </style>
+
+      /* Efectos adicionales de suspenso */
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2));
+        pointer-events: none;
+      }
+
+      /* Efecto de texto brillante */
+      @keyframes textGlow {
+        0% {
+          text-shadow: 0 0 5px rgba(255, 58, 74, 0.3);
+        }
+        50% {
+          text-shadow: 0 0 15px rgba(255, 58, 74, 0.5);
+        }
+        100% {
+          text-shadow: 0 0 5px rgba(255, 58, 74, 0.3);
+        }
+      }
+
+      h1 {
+        animation: textGlow 3s infinite;
+      }
+</style>
   </head>
   <body>
     <div class="container">
